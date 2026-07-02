@@ -1,1 +1,51 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeGate QR</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>🏫 SAN JOSE ELEMENTARY SCHOOL</h1>
+        <p>Student QR Verification System</p>
+    </div>
+
+    <div class="card">
+        <!-- Naka-hide muna ang image border habang walang photo -->
+        <img id="photo" src="https://placehold.co/180x180" alt="Student Photo">
+
+        <h2 id="name">Waiting for QR Scan...</h2>
+
+        <table>
+            <tr>
+                <td><b>Student ID</b></td>
+                <td id="studentID">---</td>
+            </tr>
+            <tr>
+                <td><b>Grade</b></td>
+                <td id="grade">---</td>
+            </tr>
+            <tr>
+                <td><b>Section</b></td>
+                <td id="section">---</td>
+            </tr>
+            <tr>
+                <td><b>Status</b></td>
+                <td id="status">---</td>
+            </tr>
+        </table>
+
+        <div id="result" class="verified">
+            READY TO SCAN
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

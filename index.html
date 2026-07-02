@@ -1,24 +1,112 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SafeGate QR</title>
-    <link rel="stylesheet" href="style.css">
+    <title>SafeGate QR Scanner</title>
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #f2f5f9;
+            padding: 10px;
+        }
+
+        .container {
+            max-width: 420px;
+            margin: 10px auto;
+        }
+
+        .header {
+            background: #0d6efd;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .scanner-section {
+            background: white;
+            padding: 15px;
+            border-bottom: 2px dashed #ccc;
+        }
+
+        #reader {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            border: none !important;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,.1);
+        }
+
+        img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            display: block;
+            margin: auto;
+            object-fit: cover;
+            border: 5px solid #ddd;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 22px;
+        }
+
+        table {
+            width: 100%;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        td {
+            padding: 8px;
+        }
+
+        #result {
+            color: white;
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .ready { background: #6c757d; }
+        .verified { background: #198754; }
+        .invalid { background: #dc3545; }
+    </style>
 </head>
 <body>
 
 <div class="container">
+
     <div class="header">
         <h1>🏫 SAN JOSE ELEMENTARY SCHOOL</h1>
         <p>Student QR Verification System</p>
     </div>
 
-    <div class="card">
-        <!-- Naka-hide muna ang image border habang walang photo -->
-        <img id="photo" src="https://placehold.co/180x180" alt="Student Photo">
+    <div class="scanner-section">
+        <div id="reader"></div>
+    </div>
 
+    <div class="card">
+        <img id="photo" src="https://placehold.co/180x180" alt="Student Photo">
         <h2 id="name">Waiting for QR Scan...</h2>
 
         <table>
@@ -40,10 +128,11 @@
             </tr>
         </table>
 
-        <div id="result" class="verified">
+        <div id="result" class="ready">
             READY TO SCAN
         </div>
     </div>
+
 </div>
 
 <script src="script.js"></script>
